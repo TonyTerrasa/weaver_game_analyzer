@@ -1,0 +1,3 @@
+[submodule "weaver_analysis"]
+	path = weaver_analysis
+	url = https://github.com/TonyTerrasa/weaver_analysis.git
