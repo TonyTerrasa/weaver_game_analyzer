@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, url_for
 from flask_bootstrap import Bootstrap5
 
 from flask_wtf import FlaskForm, CSRFProtect
@@ -27,17 +27,8 @@ class WordForm4(FlaskForm):
 
 @app.route('/')
 def index():
-    return """
-    <style>
-    p{
-    color: blue;
-    }
-    </style>
-    <h1>My Page for Tony's Class</h1>
-    <p>
-    Here is where all the HTML stuff goes, but I can also import the HTML files that I wrote for Sofía or Miguel"
-    </p>
-    """
+    return redirect(url_for("solve4"), code=304)
+
 
 @app.route('/solve4', methods=['GET', 'POST'])
 def solve4():
