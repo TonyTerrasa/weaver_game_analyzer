@@ -27,8 +27,11 @@ class WordForm4(FlaskForm):
 
 @app.route('/')
 def index():
-    return redirect(url_for("solve4"), code=304)
+    return render_template('index.html')
 
+@app.route('/jail')
+def jail():
+    return render_template('jail.html')
 
 @app.route('/solve4', methods=['GET', 'POST'])
 def solve4():

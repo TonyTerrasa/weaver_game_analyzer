@@ -1,6 +1,6 @@
 
 
-{% block content %}
+<body>
 
 <h1> Welcome ... </h1>
 
@@ -10,12 +10,12 @@
 
 <p> To enter, you must swear upon your soul not to use this weaver solver to cheat on your Weavers... <p>
 
-<form action="./index.html">
+<form action="{{ url_for('solve4') }}">
     <button type="submit">Yes, I agree</button>
 </form>
-<form action="./media/jail-right-to-jail.gif">
+<form action="{{ url_for('jail') }}">
     <button type="submit">No, I'm a cheater</button>
 </form>
 
 
-{% end block %}
+<body>
