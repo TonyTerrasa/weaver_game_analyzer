@@ -48,10 +48,8 @@ def solve4():
     solution = ''
     if w1 is not None and w2 is not None:
         print(w1, w2)
-        solution = gui_paths_4(w1, w2)
-        print(solution)
-
-    print(solution)
+        solution = gui_paths_4(w1.lower(), w2.lower())
+        #print(solution)
 
     return render_template('solve4.html', form=form, solution=solution)
 
