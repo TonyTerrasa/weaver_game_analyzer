@@ -7,7 +7,7 @@ from wtforms.validators import DataRequired, Length
 
 import secrets
 
-from weaver_analysis.weaver_analysis import gui_paths_4, gui_paths_5
+import analysis.weaver_analysis 
 
 
 # Flask requires this line
@@ -48,7 +48,7 @@ def solve4():
     solution = ''
     if w1 is not None and w2 is not None:
         print(w1, w2)
-        solution = gui_paths_4(w1.lower(), w2.lower())
+        solution = analysis.weaver_analysis.gui_paths_4(w1.lower(), w2.lower())
         #print(solution)
 
     return render_template('solve4.html', form=form, solution=solution)
