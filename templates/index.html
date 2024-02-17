@@ -1,21 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/icon-font.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+        
+        <title>Weaver Solver</title>
+    </head>
+
+    <body>
+
+    <h1> Welcome ... </h1>
+
+    <p> to my weaver game solver. <p>
+
+    <p> Now you may well be wondering why this site looks so displeasing, perhaps even not trustworhy. That's because I haven't gotten to making it pretty yet, but if I gave you the link it should be safe..... prolly </p>
+
+    <p> To enter, you must swear upon your soul not to use this weaver solver to cheat on your Weavers... <p>
+
+    <form action="{{ url_for('solve4') }}">
+        <button type="submit">Yes, I agree</button>
+    </form>
+    <form action="{{ url_for('jail') }}">
+        <button type="submit">No, I'm a cheater</button>
+    </form>
 
 
-<body>
+    <body>
 
-<h1> Welcome ... </h1>
-
-<p> to my weaver game solver. <p>
-
-<p> Now you may well be wondering why this site looks so displeasing, perhaps even not trustworhy. That's because I haven't gotten to making it pretty yet, but if I gave you the link it should be safe..... prolly </p>
-
-<p> To enter, you must swear upon your soul not to use this weaver solver to cheat on your Weavers... <p>
-
-<form action="{{ url_for('solve4') }}">
-    <button type="submit">Yes, I agree</button>
-</form>
-<form action="{{ url_for('jail') }}">
-    <button type="submit">No, I'm a cheater</button>
-</form>
-
-
-<body>
+</html>

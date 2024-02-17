@@ -1,0 +1,113 @@
+<script>
+function changeOption() {
+    // Get the value of the selected option from the dropdown
+    var selectedOption = document.getElementById("optionDropdown").value;
+    
+    if (selectedOption == "all"){
+        document.getElementById("option1Content").style.display = "block";
+        document.getElementById("option2Content").style.display = "block";
+        document.getElementById("option3Content").style.display = "block";
+    }
+    else{
+        // Hide all content divs
+        document.getElementById("option1Content").style.display = "none";
+        document.getElementById("option2Content").style.display = "none";
+        document.getElementById("option3Content").style.display = "none";
+        
+        // Show the content div corresponding to the selected option
+        document.getElementById(selectedOption + "Content").style.display = "block";
+    }
+}
+
+</script>
+<style>
+.wordle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 50px); /* Adjust the number of columns and width as needed */
+  gap: 10px; /* Adjust the gap between boxes as needed */
+}
+
+.box {
+  width: 50px; /* Adjust the width and height of boxes as needed */
+  height: 50px;
+  background-color: #f0f0f0; /* Adjust the background color of boxes as needed */
+  border: 1px solid #ccc; /* Add border for boxes */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px; /* Adjust the font size of letters as needed */
+}
+
+.normal-box {
+    background-color: #f0f0f0;
+}
+
+.correct-box {
+    background-color: rgb(44, 227, 44);
+}
+
+</style>
+
+
+<body>
+<select id="optionDropdown" onchange="changeOption()">
+    <option value="default" selected="selected"> Please select shape </option>
+  <option value="option1">Option 1</option>
+  <option value="option2">Option 2</option>
+  <option value="option3">Option 3</option>
+  <option value="all">All</option>
+</select>
+
+<div id="displayContent">
+  <!-- Content for option 1 (initially displayed) -->
+  <div id="option1Content">
+    <h2>Option 1</h2>
+    <div class="wordle-grid">
+        <div class="box normal-box">C</div>
+        <div class="box correct-box">O</div>
+        <div class="box normal-box">R</div>
+        <div class="box normal-box">D</div>
+    </div>
+    <div class="wordle-grid">
+        <div class="box normal-box">W</div>
+        <div class="box correct-box">O</div>
+        <div class="box normal-box">R</div>
+        <div class="box normal-box">D</div>
+    </div>
+    <div class="wordle-grid">
+        <div class="box normal-box">W</div>
+        <div class="box correct-box">O</div>
+        <div class="box normal-box">R</div>
+        <div class="box correct-box">K</div>
+    </div>
+    <div class="wordle-grid">
+        <div class="box correct-box">F</div>
+        <div class="box correct-box">O</div>
+        <div class="box normal-box">R</div>
+        <div class="box correct-box">K</div>
+    </div>
+    <div class="wordle-grid">
+        <div class="box correct-box">F</div>
+        <div class="box correct-box">O</div>
+        <div class="box correct-box">L</div>
+        <div class="box correct-box">K</div>
+    </div>
+</div>
+
+  </div>
+  <!-- Content for option 2 (initially hidden) -->
+  <div id="option2Content" style="display: none;">
+    <h2>Option 2</h2>
+    <div class="wordle-grid">
+        <div class="box normal-box">W</div>
+        <div class="box normal-box">O</div>
+        <div class="box normal-box">R</div>
+        <div class="box normal-box">K</div>
+    </div>
+  </div>
+  <!-- Content for option 3 (initially hidden) -->
+  <div id="option3Content" style="display: none;">
+    <h2>Option 3</h2>
+  </div>
+</div>
+</body>

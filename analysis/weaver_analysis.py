@@ -2,25 +2,75 @@ import networkx as nx
 import pickle
 
 
+def get_paths(G: nx.Graph, s1: str, s2: str):
+    s1 = s1.lower()
+    s2 = s2.lower()
+    return list(nx.all_shortest_paths(G, s1, s2))
+
+
+def paths_with_correctness(G: nx.Graph, s1: str, s2: str):
+    """
+    G (nx.Graph) graph to use to find paths
+    s1 (str) starting string
+    s1 (str) ending string
+
+    Returns an array of paths where each path is an array like
+    [[("W","C"), ("O", "I"), ("R","C"), ("O", "I")], ...]
+
+    Where "C" means the letter is in the correct place relative
+    to the end string and "I" means that letter is not correct
+    """
+
+    paths = get_paths(G, s1, s2)
+
+    correctness_paths = []
+
+    for p in paths:
+        path = []
+        for w in p:
+            word = []
+            for i, letter in enumerate(w):
+                word.append((letter, "C" if s2[i] == letter else "I"))
+            path.append(word)
+        correctness_paths.append(path)
+
+    return correctness_paths
+
+
 def gui_paths(G: nx.Graph, s1: str, s2: str):
-    paths = list(nx.all_shortest_paths(G, s1, s2))
-    result = ["#"*20]
+    paths = get_paths(G, s1, s2)
+    result = ["#" * 20]
     result.append(f'Showing the possible (fastest) paths between "{s1}" and "{s2}"')
-    result.append(f'Optimal path length: {len(paths[0])} (optimal number of steps therefore {len(paths[0]) -1})')
-    for i, p in enumerate(paths): 
-        result.append(f"path {i+1}: "+ " -> ".join(p))
-    result.append("#"*20)
+    result.append(
+        f"Optimal path length: {len(paths[0])} (optimal number of steps therefore {len(paths[0]) -1})"
+    )
+    for i, p in enumerate(paths):
+        result.append(f"path {i+1}: " + " -> ".join(p))
+    result.append("#" * 20)
 
     return result
 
 
-def gui_paths_4(s1: str, s2:str):
-    with open('./analysis/weaver-graph-4.pkl', 'rb') as f:
+def gui_paths_4(s1: str, s2: str):
+    with open("./analysis/weaver-graph-4.pkl", "rb") as f:
         G4 = pickle.load(f)
     return gui_paths(G4, s1, s2)
 
 
-def gui_paths_5(s1: str, s2:str):
-    with open('./analysis/weaver-graph-5.pkl', 'rb') as f:
+def gui_paths_5(s1: str, s2: str):
+    with open("./analysis/weaver-graph-5.pkl", "rb") as f:
         G5 = pickle.load(f)
     return gui_paths(G5, s1, s2)
+
+
+# if __name__ == "__main__":
+# with open('./analysis/weaver-graph-4.pkl', 'rb') as f:
+#     G4 = pickle.load(f)
+# cpaths = paths_with_correctness(G4, "grow", "stow")
+
+# print(len(cpaths))
+
+# for p in cpaths:
+#     print("#######")
+#     for w in p:
+#         print(w)
