@@ -37,6 +37,8 @@ def paths_with_correctness(G: nx.Graph, s1: str, s2: str):
     return correctness_paths
 
 
+
+
 def gui_paths(G: nx.Graph, s1: str, s2: str):
     paths = get_paths(G, s1, s2)
     result = ["#" * 20]
@@ -61,6 +63,11 @@ def gui_paths_5(s1: str, s2: str):
     with open("./analysis/weaver-graph-5.pkl", "rb") as f:
         G5 = pickle.load(f)
     return gui_paths(G5, s1, s2)
+
+def correctness_paths_4(s1: str, s2: str):
+    with open("./analysis/weaver-graph-4.pkl", "rb") as f:
+        G4 = pickle.load(f)
+    return paths_with_correctness(G4, s1, s2)
 
 
 # if __name__ == "__main__":

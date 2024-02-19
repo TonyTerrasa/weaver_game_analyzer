@@ -1,0 +1,19 @@
+{% from 'bootstrap5/form.html' import render_form %}
+<style>
+.p {    
+    font-family: monospace;
+}
+</style>
+<body>
+        
+    <!-- {{ render_form(form) }} -->
+
+    {% for line in solution %}
+
+    <p>{{ line }}</p>
+
+    {% endfor %}
+
+
+</body>
+

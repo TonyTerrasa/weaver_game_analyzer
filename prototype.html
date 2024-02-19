@@ -6,7 +6,7 @@
         
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
         
-        <link rel="stylesheet" href="css/answerpage.css">
+        <link rel="stylesheet" href="static/answerpage.css">
         
         <title>Weaver Solver</title>
     </head>
@@ -17,15 +17,16 @@
         var selectedOption = document.getElementById("optionDropdown").value;
         
         if (selectedOption == "all"){
-            document.getElementById("option1Content").style.display = "block";
-            document.getElementById("option2Content").style.display = "block";
-            document.getElementById("option3Content").style.display = "block";
+            var elements = document.getElementsByClassName('path-option');
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.display = "block";
+            }
         }
         else{
-            // Hide all content divs
-            document.getElementById("option1Content").style.display = "none";
-            document.getElementById("option2Content").style.display = "none";
-            document.getElementById("option3Content").style.display = "none";
+            var elements = document.getElementsByClassName('path-option');
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.display = "none";
+            }
             
             // Show the content div corresponding to the selected option
             document.getElementById(selectedOption + "Content").style.display = "block";
@@ -44,8 +45,7 @@
 
     <div class="selector">
       <select id="optionDropdown" onchange="changeOption()">
-          <option value="default" selected="selected"> Select Option </option>
-        <option value="option1">Option 1</option>
+        <option value="option1" selected>Option 1</option>
         <option value="option2">Option 2</option>
         <option value="option3">Option 3</option>
         <option value="all">All</option>
