@@ -89,6 +89,7 @@ def solve4():
     w2 = None
     selector = ""
     path_box = ""
+    solution_display = "none"
 
     form = WordForm4()
     if form.validate_on_submit():
@@ -100,6 +101,7 @@ def solve4():
     if w1 is not None and w2 is not None:
         print(w1, w2)
         selector, path_box = generate_solution_html(w1, w2)
+        solution_display = "block"
         print(selector)
         print(path_box)
 
@@ -108,7 +110,8 @@ def solve4():
         selector=selector, 
         path_box=path_box,
         w1=w1,
-        w2=w2)
+        w2=w2,
+        solution_display=solution_display)
 
 
 if __name__ == "__main__":

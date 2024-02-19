@@ -46,17 +46,17 @@
   </div>
 
   <div class="option-display">
-    <div class="path-label">
+    <div class="path-label" style="display: {{ solution_display }};">
       <h2 class="path-label-text">Showing Options for "{{ w1 }}" to "{{ w2 }}"</h2>
     </div>
 
-    <div class="selector">
+    <div class="selector" style="display: {{ solution_display }};">
       <select id="optionDropdown" onchange="changeOption()">
         {{ selector|safe  }}
       </select>
     </div>
 
-    <div class="path-box" id="displayContent">
+    <div class="path-box" id="displayContent" style="display: {{ solution_display }};">
         {{ path_box|safe  }}
     </div>
   </div>
