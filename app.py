@@ -97,10 +97,12 @@ def generate_solution_html(w1, w2):
 @app.route("/solve", methods=["GET", "POST"])
 def solve():
     w1, w2 = None, None
-    selector = ""
+    solutions = []
+    num_solutions = 0
     path_box = ""
-    solution_present = False
     errors_present = False
+
+    print("Hello I'm in the solve")
 
     form = WordForm4()
     if form.validate_on_submit():
@@ -111,20 +113,24 @@ def solve():
     solution = ""
     if w1 is not None and w2 is not None:
         # print(w1, w2)
-        selector, path_box = generate_solution_html(w1, w2)
-        solution_present = True
+        # selector, path_box = generate_solution_html(w1, w2)
+        # solution_present = True
         # print(selector)
         # print(path_box)
+        solutions = analysis.weaver_analysis.correctness_paths_4(w1, w2)
+        num_solutions = len(solutions)
+        print(num_solutions)
+        print(solutions)
 
     errors_present = len(form.w1.errors) > 0
 
     return render_template("solve.html", 
         form=form, 
-        selector=selector, 
+        solutions=solutions,
+        num_solutions=num_solutions, 
         path_box=path_box,
         w1=w1,
         w2=w2,
-        solution_present=solution_present,
         errors_present=errors_present,
         )
 

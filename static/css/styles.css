@@ -44,7 +44,6 @@ body {
 
 }
 
-/* Add a media query for smaller screen sizes */
 @media screen and (max-width: 800px) {
     body {
         width: 90%; /* Reduce padding for smaller screens */
@@ -237,7 +236,7 @@ footer a, footer p {
 
     display: block;
     margin: auto auto 8px;
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
 
     border: none;
@@ -250,6 +249,24 @@ footer a, footer p {
 .path-label {
     display: block;
     text-align: center;
+    border: solid #ccc 0px;
+    width: fit-content;
+    margin: 0 auto 5px;
+    padding: 0 5px 3px;
+    border-radius: 5px;
+
+}
+
+.path-label-text{
+    text-transform: uppercase;
+    font-size: 35px;
+    font-weight: normal;
+}
+
+.target-word{
+    /* font-family: monospace; */
+    font-weight: bold;
+    font-size: 30px;
 }
 
 .path-box {
@@ -263,6 +280,11 @@ footer a, footer p {
     padding: 5px;
     margin: 3px auto;
     text-align: center;
+}
+
+.option-name{
+    font-size: 30;
+    font-weight: normal;
 }
 
 .wordle-grid {
@@ -294,5 +316,5 @@ footer a, footer p {
   }
   
   .correct-box {
-      background-color: rgb(44, 227, 44);
+      background-color: #2ce32c;
   }
