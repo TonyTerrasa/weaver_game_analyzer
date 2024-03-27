@@ -26,10 +26,31 @@ body {
     background-color: #fff;
     margin: auto;
     padding: 30px;
-    width: 1000px;
+    width: 57%;
     display: block;
 
 }
+
+
+/* Add a media query for smaller screen sizes */
+@media screen and (max-width: 1200px) {
+    body {
+        width: 75%; /* Reduce padding for smaller screens */
+        padding: 10px;
+    }
+}
+
+/* Add a media query for smaller screen sizes */
+@media screen and (max-width: 800px) {
+    body {
+        width: 90%; /* Reduce padding for smaller screens */
+        padding: 10px;
+    }
+    .weaver-rules{
+        width: 90%;
+    }
+}
+
 
 h2{
     font-size: 35px;
@@ -127,6 +148,7 @@ footer a, footer p {
     display: block;
     margin: 5px auto;
     border: solid 2px black;
+    width: 400px;
     
 }
 
