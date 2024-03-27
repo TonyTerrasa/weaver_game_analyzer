@@ -38,9 +38,11 @@ body {
         width: 75%; /* Reduce padding for smaller screens */
         padding: 10px;
     }
+    .weaver-explanation{
+        width: 100%;
+    }
     .weaver-rules{
         width: 70%;
-        height: auto;
         display: block;
         margin: 5px auto;
     }
@@ -52,9 +54,11 @@ body {
         width: 90%; /* Reduce padding for smaller screens */
         padding: 10px;
     }
+    .weaver-explanation{
+        width: 100%;
+    }
     .weaver-rules{
         width: 70%;
-        height: auto;
         display: block;
         margin: 5px auto;
     }
