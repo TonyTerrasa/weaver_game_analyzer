@@ -41,11 +41,7 @@ body {
     .weaver-explanation{
         width: 100%;
     }
-    .weaver-rules{
-        width: 70%;
-        display: block;
-        margin: 5px auto;
-    }
+
 }
 
 /* Add a media query for smaller screen sizes */
@@ -56,11 +52,6 @@ body {
     }
     .weaver-explanation{
         width: 100%;
-    }
-    .weaver-rules{
-        width: 70%;
-        display: block;
-        margin: 5px auto;
     }
 }
 
@@ -162,6 +153,8 @@ footer a, footer p {
     margin: 5px auto;
     border: solid 2px black;
     width: 400px;
+    max-width: 98%;
+    height: auto;
     
 }
 
