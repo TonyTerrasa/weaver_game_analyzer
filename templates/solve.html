@@ -43,11 +43,11 @@
 <body>
 
   <div class="form-box">
-    <form method="POST" action="{{ url_for('solve4') }}">
+    <form method="POST" action="{{ url_for('solve') }}">
       {{ form.hidden_tag() }}
       {{ form.w1.label }}:  {{ form.w1 }}<br>
       {{ form.w2.label }}:  {{ form.w2 }}<br>
-      <button type="submit" class="button-custom">Submit</button>
+      <button type="submit" class="btn">Submit</button>
     </form>
     {% if errors_present %}
     <div class="form-errors">

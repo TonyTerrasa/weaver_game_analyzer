@@ -74,7 +74,7 @@ p{
 
 }
 
-.button-custom{
+.btn{
     padding: 10px;
     margin: 3px;
     border-radius: 40px;
@@ -84,19 +84,25 @@ p{
     
 }
 
-.button-accept{
-    background-color: #67e308;
+.btn-accept{
+    background-color: #3d8804;
+    color: #fff;
 
 }
-.button-decline{
+.btn-decline{
 
     background-color: red;
+    color: #fff;
 
 }
 
 .weaver-explanation{
     margin-top: 3px;
     padding: 10px;
+}
+
+.weaver-explanation p {
+    margin: 10px 0px;
 }
 
 .weaver-rules{

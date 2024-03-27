@@ -94,8 +94,8 @@ def generate_solution_html(w1, w2):
     return selector, path_box
 
 
-@app.route("/solve4", methods=["GET", "POST"])
-def solve4():
+@app.route("/solve", methods=["GET", "POST"])
+def solve():
     w1, w2 = None, None
     selector = ""
     path_box = ""
@@ -118,7 +118,7 @@ def solve4():
 
     errors_present = len(form.w1.errors) > 0
 
-    return render_template("solve4.html", 
+    return render_template("solve.html", 
         form=form, 
         selector=selector, 
         path_box=path_box,
