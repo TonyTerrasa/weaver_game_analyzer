@@ -6,29 +6,47 @@
         
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
 
-        <link rel="stylesheet" href="css/icon-font.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
         
         <title>Weaver Solver</title>
     </head>
 
+    <header>
+        <h1> <a href="{{ url_for('index') }}" class="header-title">Weaver Solver</a> </h1>
+    </header>
+
     <body>
 
-    <h1> Welcome ... </h1>
+    <div class="welcome">
 
-    <p> to my weaver game solver. <p>
+    <h2>Welcome</h2>
+    
+    <p> This site helps you visualize the solutions to the <a href="https://wordwormdormdork.com">Weaver Word Ladder Game</a>. 
+        This site can and will provide you with the answers to today's Weaver, so please confirm that you will use the site 
+        honestly and not for cheating.
+    </p>
+    </div>
 
-    <p> Now you may well be wondering why this site looks so displeasing, perhaps even not trustworhy. That's because I haven't gotten to making it pretty yet, but if I gave you the link it should be safe..... prolly </p>
+    <div class="button-box">
+        <form action="{{ url_for('solve4') }}">
+            <button class="button-custom button-accept" type="submit">Yes, I will use it honestly</button>
+        </form>
+        <form action="{{ url_for('jail') }}">
+            <button class="button-custom button-decline" type="submit">No, I'm a cheater</button>
+        </form>
+    </div>
 
-    <p> To enter, you must swear upon your soul not to use this weaver solver to cheat on your Weavers... <p>
+    <div class="weaver-explanation">
+        <h2>What is Weaver?</h2>
 
-    <form action="{{ url_for('solve4') }}">
-        <button type="submit">Yes, I agree</button>
-    </form>
-    <form action="{{ url_for('jail') }}">
-        <button type="submit">No, I'm a cheater</button>
-    </form>
+        <p> Weaver is a word ladder game in which you attempt to change one word into another only changing one letter at a time. 
+            Below is an explanation from the weaver site.
+        </p>
+
+        <img class="weaver-rules" src="{{ url_for('static', filename='images/weaver-rules.jpg') }}" alt="Weaver Rules Explanation">
+
+
+    </div>
 
 
     <body>

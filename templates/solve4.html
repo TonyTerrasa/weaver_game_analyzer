@@ -37,6 +37,10 @@
 
     </script>
 
+<header>
+  <h1> <a href="{{ url_for('index') }}" class="header-title">Weaver Solver</a> </h1>
+</header>
+
 
 <body>
 
@@ -45,7 +49,7 @@
       {{ form.hidden_tag() }}
       {{ form.w1.label }}:  {{ form.w1 }}<br>
       {{ form.w2.label }}:  {{ form.w2 }}<br>
-      <button type="submit">Submit</button>
+      <button type="submit" class="button-custom">Submit</button>
     </form>
     {% if errors_present %}
     <div class="form-errors">

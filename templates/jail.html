@@ -1,1 +1,31 @@
-<img src="./static/jail-right-to-jail.gif">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        
+        <title>Weaver Solver</title>
+    </head>
+    <style>
+        .jail{
+            margin: 10px auto;
+            width: 100%;
+
+        }
+
+
+    </style>
+
+    <header>
+        <h1> <a href="{{ url_for('index') }}" class="header-title">Weaver Solver</a> </h1>
+    </header>
+
+    <body>
+    <img class="jail" src="{{ url_for('static', filename='images/jail-right-to-jail.gif') }}">
+    </body>
+
+</html>

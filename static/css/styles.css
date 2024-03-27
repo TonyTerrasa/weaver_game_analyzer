@@ -1,3 +1,10 @@
+/* 
+
+    light green: #67e308
+    light grey: #ccc;
+
+*/
+
 * {
     margin: 0;
     padding: 0;
@@ -5,14 +12,83 @@
 
 }
 
+
 body {
     font-family: "Lato", sans-serif;
     background-color: #fff;
+    margin: auto;
     padding: 30px;
+    width: 1000px;
     display: block;
+
+}
+
+header{
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 15px;
+    color: black;
+}
+
+.header-title {
+    text-decoration: none;
+    color: black;
+
+}
+
+.welcome{
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+h2{
+    font-size: 35px;
+}
+
+p{
+    font-size: 20px;
+}
+
+.button-box{
+    text-align: center;
+    display: block;
+
+}
+
+.button-custom{
+    padding: 10px;
+    margin: 3px;
+    border-radius: 40px;
+    width: 250px;
+    font-weight: 400;
+    font-size: 20px;
+    
+}
+
+.button-accept{
+    background-color: #67e308;
+
+}
+.button-decline{
+
+    background-color: red;
+
+}
+
+.weaver-explanation{
+    margin-top: 3px;
+    padding: 10px;
+}
+
+.weaver-rules{
+    display: block;
+    margin: 5px auto;
+    border: solid 2px black;
+    
 }
 
 .form-box {
+    margin-top: 10px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -23,6 +99,7 @@ body {
 
 .option-display{
     position: relative;
+    display: block;
     width: 100%;
     height: 100%;
     z-index: 2;
@@ -30,6 +107,7 @@ body {
 
 .path-label {
     position: absolute;
+    display: block;
     left: 50%;
     top: 80px;
     transform: translateX(-50%);
