@@ -1,8 +1,16 @@
 /* 
 
-    light green: #67e308
+    
     light grey: #ccc;
 
+*/
+
+
+
+/* 
+    ///////////////////////
+    /// ALL PAGES
+    ///////////////////////
 */
 
 * {
@@ -21,6 +29,14 @@ body {
     width: 1000px;
     display: block;
 
+}
+
+h2{
+    font-size: 35px;
+}
+
+p{
+    font-size: 20px;
 }
 
 header{
@@ -55,24 +71,6 @@ footer a, footer p {
 
 }
 
-.welcome{
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-h2{
-    font-size: 35px;
-}
-
-p{
-    font-size: 20px;
-}
-
-.button-box{
-    text-align: center;
-    display: block;
-
-}
 
 .btn{
     padding: 10px;
@@ -82,6 +80,24 @@ p{
     font-weight: 400;
     font-size: 20px;
     
+}
+
+
+/* 
+    ///////////////////////
+    /// index.html
+    ///////////////////////
+*/
+
+.welcome{
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.button-box{
+    text-align: center;
+    display: block;
+
 }
 
 .btn-accept{
@@ -111,6 +127,12 @@ p{
     border: solid 2px black;
     
 }
+
+/* 
+    ///////////////////////
+    /// solve.html
+    ///////////////////////
+*/
 
 .form-box {
     margin-top: 10px;
