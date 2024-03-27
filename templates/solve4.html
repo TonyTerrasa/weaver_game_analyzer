@@ -8,7 +8,7 @@
         
         <!-- <link rel="stylesheet" href="css/answerpage.css"> -->
 
-        <link rel="stylesheet" href="{{ url_for('static', filename='answerpage.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
         
         <title>Weaver Solver</title>
     </head>
@@ -41,25 +41,39 @@
 <body>
 
   <div class="form-box">
-    {% from 'bootstrap4/form.html' import render_form %}
-    {{ render_form(form) }}
+    <form method="POST" action="{{ url_for('solve4') }}">
+      {{ form.hidden_tag() }}
+      {{ form.w1.label }}:  {{ form.w1 }}<br>
+      {{ form.w2.label }}:  {{ form.w2 }}<br>
+      <button type="submit">Submit</button>
+    </form>
+    {% if errors_present %}
+    <div class="form-errors">
+      {% for error in form.w1.errors %}
+        <div class="error">{{ error }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
   </div>
 
+  {% if solution_present %}
   <div class="option-display">
-    <div class="path-label" style="display: {{ solution_display }};">
+    <div class="path-label">
       <h2 class="path-label-text">Showing Options for "{{ w1 }}" to "{{ w2 }}"</h2>
     </div>
 
-    <div class="selector" style="display: {{ solution_display }};">
+    <div class="selector">
       <select id="optionDropdown" onchange="changeOption()">
         {{ selector|safe  }}
       </select>
     </div>
 
-    <div class="path-box" id="displayContent" style="display: {{ solution_display }};">
+    <div class="path-box" id="displayContent">
         {{ path_box|safe  }}
     </div>
+    
   </div>
+  {% endif %}
 </body>
 </html>
 

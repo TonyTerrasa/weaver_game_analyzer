@@ -3,7 +3,7 @@ from flask_bootstrap import Bootstrap5
 
 from flask_wtf import FlaskForm, CSRFProtect
 from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired, Length
+from wtforms.validators import DataRequired, Length, StopValidation
 
 import secrets
 
@@ -21,9 +21,20 @@ csrf = CSRFProtect(app)
 
 
 class WordForm4(FlaskForm):
-    w1 = StringField("Word 1: ", validators=[DataRequired(), Length(4, 4)])
-    w2 = StringField("Word 2: ", validators=[DataRequired(), Length(4, 4)])
+    w1 = StringField("Word 1", validators=[DataRequired(), Length(min=4, max=5, message="words must be length 4 or 5")])
+    w2 = StringField("Word 2", validators=[DataRequired(), Length(min=4, max=5, message="words must be length 4 or 5")])
     submit = SubmitField("Find Optimal Paths")
+
+    def validate(self, extra_validators=None):
+        if len(self.w1.data) != len(self.w2.data):
+            msg = "words must be the same length"
+            self.w1.errors += (msg, )
+            return False
+        
+        return True
+
+
+
 
 
 @app.route("/")
@@ -85,11 +96,11 @@ def generate_solution_html(w1, w2):
 
 @app.route("/solve4", methods=["GET", "POST"])
 def solve4():
-    w1 = None
-    w2 = None
+    w1, w2 = None, None
     selector = ""
     path_box = ""
-    solution_display = "none"
+    solution_present = False
+    errors_present = False
 
     form = WordForm4()
     if form.validate_on_submit():
@@ -99,11 +110,13 @@ def solve4():
 
     solution = ""
     if w1 is not None and w2 is not None:
-        print(w1, w2)
+        # print(w1, w2)
         selector, path_box = generate_solution_html(w1, w2)
-        solution_display = "block"
-        print(selector)
-        print(path_box)
+        solution_present = True
+        # print(selector)
+        # print(path_box)
+
+    errors_present = len(form.w1.errors) > 0
 
     return render_template("solve4.html", 
         form=form, 
@@ -111,7 +124,9 @@ def solve4():
         path_box=path_box,
         w1=w1,
         w2=w2,
-        solution_display=solution_display)
+        solution_present=solution_present,
+        errors_present=errors_present,
+        )
 
 
 if __name__ == "__main__":
