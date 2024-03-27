@@ -47,6 +47,8 @@ header{
 }
 
 footer {
+    display: inline-block;
+    width: 100%;
     background-color: #ccc;
     padding: 10px;
     text-align: center;
@@ -134,56 +136,105 @@ footer a, footer p {
     ///////////////////////
 */
 
-.form-box {
-    margin-top: 10px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 80px;
+.form-box-container{
     display: block;
-    z-index: 1;
+    width: 100%;
+}
+
+.form-box, .form-errors{
+    width: 300px;
+}
+
+.form-box {
+    display: block;
+    padding: 10px;
+    margin: 10px auto;
+    text-align: center;
+    border: solid #ccc 3px;
+    border-radius: 5px;
+}
+
+
+.form-box label, .form-box input{
+    font-size: 25px;
+    margin: 3px 5px;
+}
+
+.form-box label{
+    font-weight: bold;
+}
+
+.form-box input, .form-box input:focus:active{
+    outline: transparent; /* Remove the default focus outline when selected */
+    width: 75px;
+    padding: 5px 3px;
+    border: solid #ccc;
+    border-width: 0 0 2px 0;
+    text-align: center;
+}
+
+.form-box .btn {
+    width: 100px;
+}
+
+.form-errors {
+    background-color: #fd9b9bff;
+    border: solid 1px;
+    border-radius: 5px;
+    padding: 5px;
+    color: #990e0e;
+    font-size: 16px;
+    text-align: left;
+    margin: 0 auto 10px;
+}
+
+.form-errors p {
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .option-display{
-    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin: 10px auto;
+}
+
+.selector{
     display: block;
     width: 100%;
-    height: 100%;
-    z-index: 2;
+    margin: 3px;
+}
+
+.selector select, .selector select:active:focus {
+
+    display: block;
+    margin: auto auto 8px;
+    font-size: 20px;
+    text-align: center;
+
+    border: none;
+    border-radius: 10px;
+    padding: 3px;
+
+    outline: transparent;
 }
 
 .path-label {
-    position: absolute;
     display: block;
-    left: 50%;
-    top: 80px;
-    transform: translateX(-50%);
-    width: 60vh;
     text-align: center;
-    z-index: 1;
 }
 
-.selector {
-    position: absolute;
-    top: 120px;
-    left: 50%;
-    
-    transform: translateX(-50%);
-    z-index: 2;
-}
 .path-box {
-    position: absolute;
-    top: 150px;
-    left: 50%;
-    
-    transform: translateX(-50%);
-    z-index: 3;
+    text-align: center;
 }
 
 .path-option {
+    display: block1;
+    width: fit-content;
     border: 2px solid #ccc;
     padding: 5px;
-    margin: 3px;
+    margin: 3px auto;
+    text-align: center;
 }
 
 .wordle-grid {
@@ -193,6 +244,8 @@ footer a, footer p {
     /* Adjust the gap between boxes as needed */
     gap: 0px; 
     background-color: #fff;
+
+    margin: auto;
   }
   
   .box {

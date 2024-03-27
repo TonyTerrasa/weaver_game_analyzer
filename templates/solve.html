@@ -42,15 +42,18 @@
 
 <body>
 
-  <div class="form-box">
-    <form method="POST" action="{{ url_for('solve') }}">
-      {{ form.hidden_tag() }}
-      {{ form.w1.label }}:  {{ form.w1 }}<br>
-      {{ form.w2.label }}:  {{ form.w2 }}<br>
-      <button type="submit" class="btn">Submit</button>
-    </form>
+  <div class="form-box-container">
+    <div class="form-box">
+      <form method="POST" action="{{ url_for('solve') }}">
+        {{ form.hidden_tag() }}
+        {{ form.w1.label }}  {{ form.w1 }}<br>
+        {{ form.w2.label }}  {{ form.w2 }}<br>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </div>
     {% if errors_present %}
     <div class="form-errors">
+      <p>ERROR</p>
       {% for error in form.w1.errors %}
         <div class="error">{{ error }}</div>
       {% endfor %}
