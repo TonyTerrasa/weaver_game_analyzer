@@ -40,6 +40,8 @@ body {
     }
     .weaver-rules{
         width: 70%;
+        height: auto;
+        display: block;
         margin: 5px auto;
     }
 }
@@ -52,6 +54,8 @@ body {
     }
     .weaver-rules{
         width: 70%;
+        height: auto;
+        display: block;
         margin: 5px auto;
     }
 }
