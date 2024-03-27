@@ -14,17 +14,18 @@
         .jail-img{
             margin: 10px auto;
             width: 100%;
+            border-radius: 10px;
         }
 
 
     </style>
 
-    <header>
-        <h1> <a href="{{ url_for('index') }}" class="header-title">Weaver Solver</a> </h1>
-    </header>
+    {% include 'header.html' %}
 
     <body>
     <img class="jail-img" src="{{ url_for('static', filename='images/jail-right-to-jail.gif') }}">
     </body>
+
+    {% include 'footer.html' %}
 
 </html>
