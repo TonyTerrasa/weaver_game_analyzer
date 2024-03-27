@@ -23,9 +23,22 @@
             for (var i = 0; i < elements.length; i++) {
                 elements[i].style.display = "block";
             }
+
+            // if showing all elements, then show the labels for each option
+            elements = document.getElementsByClassName('option-name');
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.display = "block";
+            }
+            
         }
         else{
             var elements = document.getElementsByClassName('path-option');
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.display = "none";
+            }
+
+            // if showing just one elements, then no need to show the option name
+            elements = document.getElementsByClassName('option-name');
             for (var i = 0; i < elements.length; i++) {
                 elements[i].style.display = "none";
             }
@@ -61,20 +74,44 @@
     {% endif %}
   </div>
 
-  {% if solution_present %}
+  {% if num_solutions > 0 %}
   <div class="option-display">
     <div class="path-label">
-      <h2 class="path-label-text">Showing Options for "{{ w1 }}" to "{{ w2 }}"</h2>
-    </div>
+      <h2 class="path-label-text"> <span class="target-word">{{ w1 }}</span> &rarr; <span class="target-word">{{ w2 }}</span></h2>
+    
 
-    <div class="selector">
-      <select id="optionDropdown" onchange="changeOption()">
-        {{ selector|safe  }}
-      </select>
+      <div class="selector">
+        <select id="optionDropdown" onchange="changeOption()">
+          <option value="all" selected>All</option>
+
+          {% for num in range(num_solutions) %}
+          <option value="option{{ num+1 }}">Option {{ num+1 }}</option>
+          {% endfor %}
+        </select>
+      </div>
     </div>
 
     <div class="path-box" id="displayContent">
-        {{ path_box|safe  }}
+      {% for n in range(num_solutions) %}
+      <div class="path-option" id="option{{ n+1 }}Content">
+        {% if num_solutions > 1 %}
+        <h2 class="option-name" id="option{{ n+1 }}Label">Option {{ n+1 }}</h2>
+        {% endif %}
+ 
+        {% for step in solutions[n] %}
+        <div class="wordle-grid">
+
+          {% for letter, correctness in step %}
+
+          <div class="box {% if correctness == 'C' %}correct-box{% else %}normal-box{% endif %}">{{ letter }}</div>
+
+          {% endfor %}
+
+        </div>
+        {% endfor %}
+        
+      </div>
+      {% endfor %}
     </div>
     
   </div>
