@@ -1,5 +1,6 @@
 import networkx as nx
 import pickle
+from typing import List, Tuple
 
 
 def get_paths(G: nx.Graph, s1: str, s2: str):
@@ -64,10 +65,21 @@ def gui_paths_5(s1: str, s2: str):
         G5 = pickle.load(f)
     return gui_paths(G5, s1, s2)
 
-def correctness_paths_4(s1: str, s2: str):
+def correctness_paths_4(s1: str, s2: str) -> tuple[List, Tuple]:
+
     with open("./analysis/weaver-graph-4.pkl", "rb") as f:
         G4 = pickle.load(f)
-    return paths_with_correctness(G4, s1, s2)
+
+    errors = tuple()
+    if s1 not in G4:
+        errors += (f'"{s1}" not in dictionary', )
+    if s2 not in G4:
+        errors += (f'"{s2}" not in dictionary', )
+
+    if len(errors):
+        return [], errors
+    else:
+        return paths_with_correctness(G4, s1, s2), tuple()
 
 
 # if __name__ == "__main__":

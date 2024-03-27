@@ -62,8 +62,12 @@ def solve():
 
     solution = ""
     if w1 is not None and w2 is not None:
-        solutions = analysis.weaver_analysis.correctness_paths_4(w1, w2)
+        solutions, errors = analysis.weaver_analysis.correctness_paths_4(w1, w2)
         num_solutions = len(solutions)
+
+        if len(errors):
+            form.w1.errors += errors
+
         print(num_solutions)
         print(solutions)
 
