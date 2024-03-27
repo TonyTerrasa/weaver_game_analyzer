@@ -38,6 +38,10 @@ body {
         width: 75%; /* Reduce padding for smaller screens */
         padding: 10px;
     }
+    .weaver-rules{
+        width: 70%;
+        margin: 5px auto;
+    }
 }
 
 /* Add a media query for smaller screen sizes */
@@ -47,7 +51,8 @@ body {
         padding: 10px;
     }
     .weaver-rules{
-        width: 90%;
+        width: 70%;
+        margin: 5px auto;
     }
 }
 
