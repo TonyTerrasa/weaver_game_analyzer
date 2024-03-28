@@ -62,7 +62,7 @@ def solve():
         word1 = form.w1.data
         word2 = form.w2.data
 
-    if word1 is not None and w2 is not None:
+    if word1 is not None and word2 is not None:
         solutions, errors = analysis.weaver_analysis.correctness_paths(word1, word2)
         num_solutions = len(solutions)
 
@@ -70,7 +70,7 @@ def solve():
             form.w1.errors += errors
         else:
             word_length = len(word1)
-            len_path = len(solutions[0])
+            len_path = len(solutions[0]) - 1
 
             if word_length == 4:
                 gui_summary = analysis.weaver_analysis.gui_paths_4(word1, word2)

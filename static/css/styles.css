@@ -269,6 +269,12 @@ footer a, footer p {
     text-align: left;
 }
 
+.path-intro-data{
+    font-weight: bold;
+    color: #3d8804;
+    text-transform: uppercase;
+}
+
 .gui-summary{
     background-color: #ccc;
     font-family: monospace;
