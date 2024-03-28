@@ -70,16 +70,14 @@ header{
     color: black;
     position: relative;
     text-align: center;
-    height:75px;
 }
 
 header img {
-    height:70px;
+    height:80px;
     display: inline-block;
-    vertical-align: top;
-    
-    position: absolute;
-    right: 0%;
+    margin: auto;
+    vertical-align: bottom;
+    transform: translateY(15%);
 }
 
 
@@ -87,6 +85,7 @@ header h1 {
     display: inline-block;
     width: fit-content;
     font-size: 45px;
+    margin: auto;
 }
 
 footer {
