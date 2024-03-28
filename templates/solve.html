@@ -59,6 +59,7 @@
     <div class="form-box">
       <form method="POST" action="{{ url_for('solve') }}">
         {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
         {{ form.w1.label }}  {{ form.w1 }}<br>
         {{ form.w2.label }}  {{ form.w2 }}<br>
         <button type="submit" class="btn">Submit</button>
@@ -75,10 +76,19 @@
   </div>
 
   {% if num_solutions > 0 %}
+
   <div class="option-display">
     <div class="path-label">
       <h2 class="path-label-text"> <span class="target-word">{{ w1 }}</span> &rarr; <span class="target-word">{{ w2 }}</span></h2>
     
+      <div class="paths-intro">
+        <p>There are <strong>{{ num_solutions }}</strong> different ways to get between <strong>{{ w1 }}</strong> and <strong>{{ w2 }}</strong> in the smallest number of steps,  <strong>{{ len_path }}</strong>. </p>
+        <div class="gui-summary">
+          {% for path in gui_summary %}
+          <p>{{ path }}</p>
+          {% endfor %}
+        </div>        
+      </div>
 
       <div class="selector">
         <select id="optionDropdown" onchange="changeOption()">

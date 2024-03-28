@@ -50,8 +50,9 @@ def solve():
     word_length = 4
     solutions = []
     num_solutions = 0
-    path_box = ""
+    len_path = 0
     errors_present = False
+    gui_summary = ""
     
 
     print("Hello I'm in the solve")
@@ -71,6 +72,16 @@ def solve():
             form.w1.errors += errors
         else:
             word_length = len(w1)
+            len_path = len(solutions[0])
+
+            if word_length == 4:
+                gui_summary = analysis.weaver_analysis.gui_paths_4(w1, w2)
+            else:
+                gui_summary = analysis.weaver_analysis.gui_paths_5(w1, w2)
+
+            # 3 is where the first path starts (before that there is intro)
+            # the last one of gui_summary 
+            gui_summary = gui_summary[3:-1]
 
         print(num_solutions)
         print(solutions)
@@ -81,7 +92,8 @@ def solve():
         form=form, 
         solutions=solutions,
         num_solutions=num_solutions, 
-        path_box=path_box,
+        len_path=len_path,
+        gui_summary=gui_summary,
         w1=w1,
         w2=w2,
         word_length=word_length,
@@ -91,5 +103,5 @@ def solve():
 
 if __name__ == "__main__":
     # solve("stay", "stow")
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', debug=True)
 
