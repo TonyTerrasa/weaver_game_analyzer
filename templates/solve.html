@@ -99,7 +99,7 @@
         {% endif %}
  
         {% for step in solutions[n] %}
-        <div class="wordle-grid">
+        <div class="wordle-grid" style="grid-template-columns: repeat({{ word_length }}, 50px); ">
 
           {% for letter, correctness in step %}
 

@@ -47,10 +47,12 @@ def jail():
 @app.route("/solve", methods=["GET", "POST"])
 def solve():
     w1, w2 = None, None
+    word_length = 4
     solutions = []
     num_solutions = 0
     path_box = ""
     errors_present = False
+    
 
     print("Hello I'm in the solve")
 
@@ -62,11 +64,13 @@ def solve():
 
     solution = ""
     if w1 is not None and w2 is not None:
-        solutions, errors = analysis.weaver_analysis.correctness_paths_4(w1, w2)
+        solutions, errors = analysis.weaver_analysis.correctness_paths(w1, w2)
         num_solutions = len(solutions)
 
         if len(errors):
             form.w1.errors += errors
+        else:
+            word_length = len(w1)
 
         print(num_solutions)
         print(solutions)
@@ -80,6 +84,7 @@ def solve():
         path_box=path_box,
         w1=w1,
         w2=w2,
+        word_length=word_length,
         errors_present=errors_present,
         )
 

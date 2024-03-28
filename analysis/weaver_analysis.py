@@ -43,9 +43,9 @@ def paths_with_correctness(G: nx.Graph, s1: str, s2: str):
 def gui_paths(G: nx.Graph, s1: str, s2: str):
     paths = get_paths(G, s1, s2)
     result = ["#" * 20]
-    result.append(f'Showing the possible (fastest) paths between "{s1}" and "{s2}"')
+    result.append(f'Solutions between "{s1}" and "{s2}"')
     result.append(
-        f"Optimal path length: {len(paths[0])} (optimal number of steps therefore {len(paths[0]) -1})"
+        f"Optimal path length: {len(paths[0])} ({len(paths[0]) -1} steps)"
     )
     for i, p in enumerate(paths):
         result.append(f"path {i+1}: " + " -> ".join(p))
@@ -65,21 +65,26 @@ def gui_paths_5(s1: str, s2: str):
         G5 = pickle.load(f)
     return gui_paths(G5, s1, s2)
 
-def correctness_paths_4(s1: str, s2: str) -> tuple[List, Tuple]:
+def correctness_paths(s1: str, s2: str) -> tuple[List, Tuple]:
 
-    with open("./analysis/weaver-graph-4.pkl", "rb") as f:
-        G4 = pickle.load(f)
+    if len(s1) == 4:
+        with open("./analysis/weaver-graph-4.pkl", "rb") as f:
+            G = pickle.load(f)
+    else:
+        with open("./analysis/weaver-graph-5.pkl", "rb") as f:
+            G = pickle.load(f)
+
 
     errors = tuple()
-    if s1 not in G4:
+    if s1 not in G:
         errors += (f'"{s1}" not in dictionary', )
-    if s2 not in G4:
+    if s2 not in G:
         errors += (f'"{s2}" not in dictionary', )
 
     if len(errors):
         return [], errors
     else:
-        return paths_with_correctness(G4, s1, s2), tuple()
+        return paths_with_correctness(G, s1, s2), tuple()
 
 
 # if __name__ == "__main__":
