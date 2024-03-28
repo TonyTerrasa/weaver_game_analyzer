@@ -48,7 +48,7 @@ def gui_paths(G: nx.Graph, s1: str, s2: str):
         f"Optimal path length: {len(paths[0])} ({len(paths[0]) -1} steps)"
     )
     for i, p in enumerate(paths):
-        result.append(f"path {i+1}: " + " -> ".join(p))
+        result.append(f"path {i+1:02d}: " + ", ".join(p))
     result.append("#" * 20)
 
     return result
@@ -86,15 +86,3 @@ def correctness_paths(s1: str, s2: str) -> tuple[List, Tuple]:
     else:
         return paths_with_correctness(G, s1, s2), tuple()
 
-
-# if __name__ == "__main__":
-# with open('./analysis/weaver-graph-4.pkl', 'rb') as f:
-#     G4 = pickle.load(f)
-# cpaths = paths_with_correctness(G4, "grow", "stow")
-
-# print(len(cpaths))
-
-# for p in cpaths:
-#     print("#######")
-#     for w in p:
-#         print(w)

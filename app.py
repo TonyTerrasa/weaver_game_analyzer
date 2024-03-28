@@ -46,7 +46,7 @@ def jail():
 
 @app.route("/solve", methods=["GET", "POST"])
 def solve():
-    w1, w2 = None, None
+    word1, word2 = None, None
     word_length = 4
     solutions = []
     num_solutions = 0
@@ -59,32 +59,30 @@ def solve():
 
     form = WordForm4()
     if form.validate_on_submit():
-        w1 = form.w1.data
-        w2 = form.w2.data
-        # return redirect( url_for('actor', id=id) )rm()
+        word1 = form.w1.data
+        word2 = form.w2.data
 
-    solution = ""
-    if w1 is not None and w2 is not None:
-        solutions, errors = analysis.weaver_analysis.correctness_paths(w1, w2)
+    if word1 is not None and w2 is not None:
+        solutions, errors = analysis.weaver_analysis.correctness_paths(word1, word2)
         num_solutions = len(solutions)
 
         if len(errors):
             form.w1.errors += errors
         else:
-            word_length = len(w1)
+            word_length = len(word1)
             len_path = len(solutions[0])
 
             if word_length == 4:
-                gui_summary = analysis.weaver_analysis.gui_paths_4(w1, w2)
+                gui_summary = analysis.weaver_analysis.gui_paths_4(word1, word2)
             else:
-                gui_summary = analysis.weaver_analysis.gui_paths_5(w1, w2)
+                gui_summary = analysis.weaver_analysis.gui_paths_5(word1, word2)
 
             # 3 is where the first path starts (before that there is intro)
             # the last one of gui_summary 
             gui_summary = gui_summary[3:-1]
 
-        print(num_solutions)
-        print(solutions)
+        # print(num_solutions)
+        # print(solutions)
 
     errors_present = len(form.w1.errors) > 0
 
@@ -94,8 +92,8 @@ def solve():
         num_solutions=num_solutions, 
         len_path=len_path,
         gui_summary=gui_summary,
-        w1=w1,
-        w2=w2,
+        w1=word1,
+        w2=word2,
         word_length=word_length,
         errors_present=errors_present,
         )
